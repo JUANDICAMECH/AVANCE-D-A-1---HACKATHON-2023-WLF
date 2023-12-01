@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 2;
+        }
+
+        #menu {
+            display: none;
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        #menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #menu a:hover {
+            background-color: #eee;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-c0XGBQesgFmZ2lAD+EBL+UZFDgJ2Zbm9CFt9IZTkApzW8uU7lvbB0K1MT+KxUxW1" crossorigin="anonymous">
+</head>
+<body>
+
+
+    <div id="menu-icon">&#9776;</div>
+    <div id="menu">
+        <a href="#">Inicio</a>
+        <a href="#">Series</a>
+        <a href="#">Peliculas</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuIcon = document.getElementById('menu-icon');
+            const menu = document.getElementById('menu');
+
+            menuIcon.addEventListener('click', function () {
+                menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'block' : 'none';
+            });
+
+            document.addEventListener('click', function (event) {
+                if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
+                    menu.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 20vh;
+        }
+
+
+        #search-container {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 35px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+ 
+        #search-input {
+            border: none;
+            padding: 20px;
+            width: 0;
+            outline: none;
+            transition: width 0.4s ease-in-out;
+        
+        }
+
+
+        #search-button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 20px 25px;
+            cursor: pointer;
+            border-radius: 0 25px 0px 0;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchContainer = document.getElementById('search-container');
+            const searchInput = document.getElementById('search-input');
+
+            searchContainer.addEventListener('click', function () {
+                searchInput.style.width = '400px';  // Ancho deseado del campo de entrada
+                searchInput.focus();
+            });
+
+            searchInput.addEventListener('blur', function () {
+                if (searchInput.value === '') {
+                    searchInput.style.width = '0';
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div id="search-container">
+        <input type="text" id="search-input" placeholder="Buscar">
+        <button id="search-button">Buscar</button>
+    </div>
